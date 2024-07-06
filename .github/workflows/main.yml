@@ -16,6 +16,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6.3.0
+        with:
+          context: ./src
+          push: true
+          file: ./src/Review-Filmes.Web/Dockerfile
+          tags: | 
+           brunoferreiram/review-filmes:v${{github.run_number}}
+           brunoferreiram/review-filmes:latest
         
       - name: Passo 01
         run: echo "Construir imagem app"
