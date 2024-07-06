@@ -51,6 +51,5 @@ jobs:
           ./k8s/deployment.yaml
          images: | 
           brunoferreiram/review-filmes:v${{github.run_number}}
-          brunoferreiram/review-filmes:latest
 
   
